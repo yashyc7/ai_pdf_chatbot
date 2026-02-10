@@ -15,7 +15,7 @@ import streamlit as st
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma #used chroma db for vector storages (embedding's need to be stored in vector db which later be used in semantic search)
 from langchain_ollama import OllamaEmbeddings, ChatOllama
 
 from langchain_core.prompts import PromptTemplate
@@ -31,8 +31,8 @@ from langchain_core.runnables import (
 
 class Config:
     CHROMA_DIR = "chroma_db"
-    EMBEDDING_MODEL = "all-minilm"
-    LLM_MODEL = "qwen2.5:3b-instruct-q4_K_M"
+    EMBEDDING_MODEL = "all-minilm" # to get embedding out of the user query and document
+    LLM_MODEL = "qwen2.5:3b-instruct-q4_K_M" # for basic chat operations and presentation 
     CHUNK_SIZE = 1000
     CHUNK_OVERLAP = 200
     RETRIEVER_K = 4
